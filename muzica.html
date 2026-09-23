@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Special 💕</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="music-page">
+
+    <div class="music-content">
+
+        <img src="heart/15.08.2026 (5).jpeg" alt="noi" class="us-photo">
+
+        <h1>
+            O melodie pentru noi 💕
+        </h1>
+
+        <p>
+            Îmi doresc ca piesa asta să ne aducă aminte de prietenia
+            noastrăăăă ✨
+        </p>
+
+        <button id="playMusicButton" class="music-button">
+            Redă piesa🎵
+        </button>
+
+        <audio id="myMusic">
+            <source src="muzica/Bruno Mars - Count on Me (Official Lyric Video).mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="lyrics-box">
+         <p id="lyrics-line">Apasă pe buton pentru a începe 🎵</p>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-to-gallery">
+        ← Înapoi 
+    </a>
+
+    <script>
+        const music = document.getElementById("myMusic");
+        const button = document.getElementById("playMusicButton");
+
+        button.addEventListener("click", function () {
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸️ Oprește melodia";
+            } else {
+                music.pause();
+                button.textContent = "🎵 Ascultă melodia";
+            }
+
+        });
+    </script>
+       <div class="next-page-container">
+             <a href="./26spt.html" class="music-next-button">
+                💗 Următoarea pagină
+            </a>
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mai multe scrisori?</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="open-when-page">
+
+    <div class="open-when-container">
+
+        <h1>💌 Deschide când...</h1>
+
+        <p class="open-when-intro">
+            Alege plicul de care ai nevoie acum. 💗
+        </p>
+
+        <div class="envelopes">
+
+            <button class="envelope" onclick="openLetter('sad')">
+                <span class="envelope-icon">💙</span>
+                <span>Deschide când ești tristă</span>
+            </button>
+
+            <button class="envelope" onclick="openLetter('encourage')">
+                <span class="envelope-icon">💗</span>
+                <span>Deschide când ai nevoie de încurajare</span>
+            </button>
+
+            <button class="envelope" onclick="openLetter('miss')">
+                <span class="envelope-icon">💜</span>
+                <span>Deschide când ți-e dor</span>
+            </button>
+
+            <button class="envelope" onclick="openLetter('smile')">
+                <span class="envelope-icon">💛</span>
+                <span>Deschide când vrei să zâmbești</span>
+            </button>
+
+        </div>
+
+        <div id="letterModal" class="letter-modal">
+
+            <div class="letter-content">
+
+                <button class="close-letter" onclick="closeLetter()">
+                    ×
+                </button>
+
+                <div id="letterIcon" class="letter-icon">
+                    💌
+                </div>
+
+                <h2 id="letterTitle"></h2>
+
+                <p id="letterText"></p>
+
+            </div>
+
+        </div>
+
+        <a href="poveste.html" class="open-when-back">
+            Pentru Ali 
+        </a>
+        <a href="poveste1.html" class="open-when-back">
+            Pentru Roxi
+        </a>
+
+    </div>
+
+
+    <script>
+
+        const letters = {
+
+            sad: {
+                icon: "💙",
+                title: "Deschide când ești tristă",
+                text: "Chiar dacă acum poate nu este cea mai bună zi, vreau să îți amintești că lucrurile grele nu durează pentru totdeauna. Ia o pauză, respiră și ai grijă de tine. Și nu uita că există oameni cărora le pasă de tine. Ai încredere în tine și dacă ai nevoie de cineva lângă tine sunt aici să te sprijin, la doar un telefon distanță.💗"
+            },
+
+            encourage: {
+                icon: "💗",
+                title: "Deschide când ai nevoie de încurajare",
+                text: "Poți mai mult decât crezi. Nu trebuie să fii perfectă și nu trebuie să ai totul rezolvat imediat. Fă un pas mic, apoi încă unul. Sunt mândră de tine pentru că încerci. Privește partea bună a lucrurilor pentru un impuls pozitiv. Să nu fi niciodată dezamăgită de tine !🌷"
+            },
+
+            miss: {
+                icon: "💜",
+                title: "Deschide când ți-e dor",
+                text: "Dacă ți-e dor, uită-te la amintirile noastre și amintește-ți de toate momentele frumoase pe care le-am avut. Chiar dacă nu suntem mereu împreună, amintirile rămân. 💜"
+            },
+
+            smile: {
+                icon: "💛",
+                title: "Deschide când vrei să zâmbești",
+                text: "Hei! Da, tu! 😭💗 Ai zâmbit măcar puțin? Dacă nu, mai încearcă o dată. Acesta este un reminder oficial că meriți să ai parte de zile frumoase și de multe motive să zâmbești. ✨"
+            }
+
+        };
+
+
+        function openLetter(type) {
+
+            const letter = letters[type];
+
+            document.getElementById("letterIcon").textContent = letter.icon;
+
+            document.getElementById("letterTitle").textContent = letter.title;
+
+            document.getElementById("letterText").textContent = letter.text;
+
+            document.getElementById("letterModal").classList.add("show");
+        }
+
+
+        function closeLetter() {
+
+            document.getElementById("letterModal").classList.remove("show");
+
+        }
+
+
+        document.getElementById("letterModal").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                closeLetter();
+            }
+
+        });
+
+    </script>
+
+
+</body>
+</html>

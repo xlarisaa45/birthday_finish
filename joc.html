@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jucăm un joc acum 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-card">
+
+        <h1>Prinde inimioara! 💗</h1>
+
+        <p>
+            Ai 20 de secunde să prinzi cât mai multe inimioare!
+        </p>
+
+        <p>
+            Scor: <span id="score">0</span>
+        </p>
+
+        <p>
+            Timp: <span id="time">20</span>
+        </p>
+
+        <div id="game-area">
+
+            <button id="heart">
+                💗
+            </button>
+
+        </div>
+
+        <p id="game-message"></p>
+
+       <a href="galerie.html" class="gallery-button">
+            📸 Amintirile noastre
+        </a>
+
+    </main>
+
+
+    <script>
+
+        const heart = document.getElementById("heart");
+        const scoreText = document.getElementById("score");
+        const timeText = document.getElementById("time");
+        const gameMessage = document.getElementById("game-message");
+
+        let score = 0;
+        let time = 20;
+        let gameStarted = false;
+        let gameOver = false;
+
+
+        heart.addEventListener("click", function () {
+
+            if (gameOver) {
+                return;
+            }
+
+            if (!gameStarted) {
+                gameStarted = true;
+
+                startTimer();
+            }
+
+            score++;
+
+            scoreText.textContent = score;
+
+            moveHeart();
+
+        });
+
+
+        function moveHeart() {
+
+            const area = document.getElementById("game-area");
+
+            const maxX = area.clientWidth - heart.offsetWidth;
+            const maxY = area.clientHeight - heart.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            heart.style.left = randomX + "px";
+            heart.style.top = randomY + "px";
+
+        }
+
+
+        function startTimer() {
+
+            const timer = setInterval(function () {
+
+                time--;
+
+                timeText.textContent = time;
+
+
+                if (time <= 0) {
+
+                    clearInterval(timer);
+
+                    gameOver = true;
+
+                    heart.style.display = "none";
+
+                    gameMessage.textContent =
+                        "Ai prins " + score + " inimioare! 💗✨";
+
+                }
+
+            }, 1000);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

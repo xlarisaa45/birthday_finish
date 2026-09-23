@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>26 Septembrie 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="birthday-page">
+
+    <div class="birthday-container">
+
+        <h1>
+            💗O zi de neuitat 💗
+        </h1>
+
+        <p class="birthday-intro">
+            Septembrie este o lună specială... iar 26 este ziua voastră. 🎀
+        </p>
+
+
+        <!-- CALENDAR -->
+
+        <div class="calendar">
+
+            <div class="calendar-month">
+                Septembrie 2026
+            </div>
+
+
+            <div class="weekdays">
+
+                <div>L</div>
+                <div>Ma</div>
+                <div>Mi</div>
+                <div>J</div>
+                <div>V</div>
+                <div>S</div>
+                <div>D</div>
+
+            </div>
+
+
+            <div class="calendar-days">
+
+                <!-- 1 septembrie 2026 este marți -->
+
+                <div class="empty-day"></div>
+
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                <div class="calendar-day">6</div>
+
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                <div class="calendar-day">20</div>
+
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day">25</div>
+
+                <!-- 26 SEPTEMBRIE -->
+
+                <div class="calendar-day special-day">
+                    <span>26</span>
+                </div>
+
+                <div class="calendar-day">27</div>
+
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">30</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORMULAR -->
+
+        <div class="wish-section">
+
+            <h2>
+                🎀 Care este amintirea ta preferată? 🎀
+            </h2>
+
+            <p>
+                Scrie mai jos. 💕
+            </p>
+
+
+            <form id="wishForm">
+
+                <textarea
+                    id="wish"
+                    name="wish"
+                    placeholder="Scrie aici... 💗"
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="wish-button"
+                >
+                    Trimite 💌
+                </button>
+
+            </form>
+
+
+            <div
+                id="successMessage"
+                class="success-message"
+            >
+                💗 Chiar sunt curioasă ce ai scris 💗
+                Eu nu pot citi, dar cred ca ție îți rămâne salvat
+            </div>
+
+        </div>
+
+
+        <!-- ÎNAPOI -->
+
+        <a
+            href="deschide-cand.html"
+            class="music-next-button"
+        >
+            Mai e mult?👀
+        </a>
+
+    </div>
+
+
+    <script>
+const form = document.getElementById("wishForm");
+const wish = document.getElementById("wish");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const text = wish.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+    try {
+        const response = await fetch("/api/wishes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                wish: text
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Eroare la salvare");
+        }
+
+        wish.value = "";
+
+        successMessage.style.display = "block";
+
+        setTimeout(() => {
+            successMessage.style.display = "none";
+        }, 5000);
+
+    } catch (error) {
+        alert("Nu s-a putut salva răspunsul.");
+    }
+});
+</script>
+
+</body>
+
+</html>
+
+

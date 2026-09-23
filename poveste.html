@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>👀</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="story-page">
+
+    <!-- ECRANUL CU PAROLA -->
+    <div id="password-screen" class="password-screen">
+
+        <div class="password-box">
+
+            <div class="password-heart">🔐</div>
+
+            <h1>O pagină secretă </h1>
+
+            <p>
+                Doar cine știe parola poate vedea ...
+            </p>
+
+            <input
+                type="password"
+                id="password-input"
+                placeholder="Introdu parola"
+                autocomplete="off"
+            >
+
+            <button id="password-button">
+                Deschide 
+            </button>
+
+            <p id="password-error"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOATĂ POVESTEA ESTE ASCUNSĂ -->
+    <div id="story-content" class="story-content-hidden">
+
+        <div class="story-container">
+
+            <h1>Amintiri iar</h1>
+
+            <p class="story-intro">
+                Unele amintiri merită păstrate pentru totdeauna...
+            </p>
+
+
+            <div class="timeline">
+
+
+                <!-- MOMENTUL 1 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot">💕</div>
+
+                    <div class="timeline-card">
+
+                        <p class="timeline-date">
+                            04.06.2026
+                        </p>
+
+                        <h2>
+                            Ziua în care am vorbit prima dată
+                        </h2>
+
+                        <img
+                            src="heart/lari si alina.jpeg"
+                            alt="Amintire"
+                            class="timeline-photo"
+                        >
+
+                        <p>
+                            Nu am o poză de atunci, dar pun asta pt ca a fost prima
+                            poza a noastra si ramane pentru totdeauna in suflet.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOMENTUL 2 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot">📸</div>
+
+                    <div class="timeline-card">
+
+                        <p class="timeline-date">
+                            15.09.2025
+                        </p>
+
+                        <h2>
+                            Prima poză de când a început școala
+                        </h2>
+
+                        <img
+                            src="heart/15.09.2025.jpeg"
+                            alt="Amintire"
+                            class="timeline-photo"
+                        >
+
+                        <p>
+                            Zi de nota 10, încă mai aveam 9 luni de stat împreună 
+                            pe la școală, aș vrea și acum să mai stăm 😅
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOMENTUL 3 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot">✨</div>
+
+                    <div class="timeline-card">
+
+                        <p class="timeline-date">
+                            02.02.2026
+                        </p>
+
+                        <h2>
+                            Legătură de păstrat :)
+                        </h2>
+
+                        <img
+                            src="heart/02.02.2026.jpeg"
+                            alt="Amintire"
+                            class="timeline-photo"
+                        >
+
+                        <p>
+                            Am început să fim din ce în ce mai apropiate și încrederea
+                            creștea din ce în ce mai mult, la fel și fericirea. Orice
+                            moment era prețuit ✨
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOMENTUL 4 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot">😂</div>
+
+                    <div class="timeline-card">
+
+                        <p class="timeline-date">
+                           12.03.2026
+                        </p>
+
+                        <h2>
+                            Șofer nou în trafic 🙂‍↕️
+                        </h2>
+
+                        <img
+                            src="heart/12.03.2026.jpeg"
+                            alt="Amintire"
+                            class="timeline-photo"
+                        >
+
+                        <p>
+                            Una dintre cele mai frumoase zile, cu amintiri de neuitat, fericire
+                            pe măsură, la fel și șoferița 🙈
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOMENTUL 5 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot">🎀</div>
+
+                    <div class="timeline-card">
+
+                        <p class="timeline-date">
+                            04.06.2026
+                        </p>
+
+                        <h2>
+                            Last day in highschool
+                        </h2>
+
+                        <img
+                            src="heart/04.06.2026 (2).jpeg"
+                            alt="Amintire"
+                            class="timeline-photo"
+                        >
+
+                        <p>
+                            Un moment emoționant, cu lacrimi de fericire și de tristețe
+                            dar frumos, de prețuit 🥲
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FINAL -->
+
+                <div class="timeline-end">
+
+                    <div class="timeline-dot">💗</div>
+
+                    <h2>
+                        Dar amintirile nu se termină aici...
+                    </h2>
+
+                    <p>
+                        Emoția pe care am vrut să o transmit a fost entuziasmul că
+                        am o persoană care să facă despărțirile grele, dar care îți este sprijin
+                        în continuare, indiferent de obstacolele impuse de viață !💟
+                    </p>
+
+                </div>
+
+            </div>
+
+
+           
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const parolaCorecta = "1234";
+
+        const passwordScreen = document.getElementById("password-screen");
+        const storyContent = document.getElementById("story-content");
+        const passwordInput = document.getElementById("password-input");
+        const passwordButton = document.getElementById("password-button");
+        const passwordError = document.getElementById("password-error");
+
+
+        function verificaParola() {
+
+            if (passwordInput.value === parolaCorecta) {
+
+                // ascunde complet ecranul cu parola
+                passwordScreen.style.display = "none";
+
+                // afișează povestea
+                storyContent.classList.remove("story-content-hidden");
+                storyContent.classList.add("story-content-visible");
+
+            } else {
+
+                passwordError.textContent = "Parola este greșită 💔";
+
+                passwordInput.value = "";
+                passwordInput.focus();
+            }
+        }
+
+
+        passwordButton.addEventListener("click", verificaParola);
+
+
+        passwordInput.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                verificaParola();
+            }
+
+        });
+
+    </script>
+
+    <a href="final.html" class="music-next-button">
+        💗 Ultima pagină
+    </a>
+
+</body>
+</html>
